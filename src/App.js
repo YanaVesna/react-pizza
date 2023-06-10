@@ -1,38 +1,47 @@
+import React from "react";
 import "./scss/app.scss";
 import Header from "./components/Header.jsx";
-import Categories from "./components/Categories.jsx";
-import Sort from "./components/Sort";
-import PizzaBlock from "./components/PizzaBlock";
-import Skeleton from "./components/PizzaBlock/Skeleton";
-import pizzas from "./assets/pizzas.json";
+import Home from "./pages/Home.jsx";
+import Cart from "./pages/Cart.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import { Routes, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "./redux/slices/counterSlice";
 
-console.log(pizzas);
+export const SearchContext = React.createContext();
 
 function App(props) {
+  const [searchValue, setSearchValue] = React.useState("");
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
+
   return (
     <div className="wrapper">
-      <Header />
-      <div className="content">
-        <div className="container">
-          <div className="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 className="content__title">Все пиццы</h2>
-          <div className="content__items">
-            {/* <PizzaBlock title="Mexciko" price={500} /> */}
-            {pizzas.map((obj) => (
-              <Skeleton key={obj.id} {...obj} />
-              /* title={obj.title}
-                price={obj.price}
-                imageURL={obj.imageURL}
-                types={obj.types}
-                sizes={obj.sizes}
-              /> */
-            ))}
+      <button
+        aria-label="Increment value"
+        onClick={() => dispatch(increment())}
+      >
+        Increment
+      </button>
+      <span>{count}</span>
+      <button
+        aria-label="Decrement value"
+        onClick={() => dispatch(decrement())}
+      >
+        Decrement
+      </button>
+      {/* <SearchContext.Provider value={{ searchValue, setSearchValue }}>
+        <Header />
+        <div className="content">
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </div>
         </div>
-      </div>
+      </SearchContext.Provider> */}
     </div>
   );
 }
