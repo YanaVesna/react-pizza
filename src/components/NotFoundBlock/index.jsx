@@ -7,9 +7,9 @@ export const NotFoundBlock = () => {
       <h1>
         <span>😕</span>
         <br />
-        Ничего не найдено
+        Nichts gefunden
         <p className={styles.description}>
-          К сожалению, данная страница отсутствует в нашем интернет-магазине
+          Leider ist diese Seite in unserem Online-Shop nicht verfügbar.
         </p>
       </h1>
     </div>
