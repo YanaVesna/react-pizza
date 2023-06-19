@@ -7,17 +7,27 @@ import Skeleton from "../components/PizzaBlock/Skeleton";
 //import pizzas from "../assets/pizzas.json";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App.js";
+import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryID, setCategoryID] = React.useState(0);
+  /* const [categoryID, setCategoryID] = React.useState(0); */
+  const categoryID = useSelector((state) => state.filter.categoryID);
+  const dispatch = useDispatch();
+  console.log(dispatch, "dispatch");
+
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortType, setSortType] = React.useState({
-    name: "популярности",
+    name: "beliebtheit",
     sortProperty: "rating",
   });
+
+  const onChangeCategory = (id) => {
+    console.log(id);
+  };
+  console.log("category ID", categoryID);
 
   //https://64365ecf8205915d34f1b803.mockapi.io/items
   React.useEffect(() => {
@@ -29,7 +39,7 @@ const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : "";
 
     fetch(
-      `https://64365ecf8205915d34f1b803.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+      `http://localhost:3001/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -56,13 +66,10 @@ const Home = () => {
   return (
     <>
       <div className="content__top">
-        <Categories
-          value={categoryID}
-          onChangeCategory={(i) => setCategoryID(i)}
-        />
+        <Categories value={categoryID} onChangeCategory={onChangeCategory} />
         <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">Alle Pizzen</h2>
       <div className="content__items">{isLoading ? skeletons : pizzas}</div>
       <Pagination onChangePage={(number) => setCurrentPage(number)} />
     </>

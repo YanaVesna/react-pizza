@@ -76,7 +76,7 @@ const Cart = () => {
             ></path>
           </svg>
 
-          <span>Очистить корзину</span>
+          <span>Leerer Warenkorb</span>
         </div>
       </div>
       <div class="content__items">
@@ -89,8 +89,8 @@ const Cart = () => {
             />
           </div>
           <div class="cart__item-info">
-            <h3>Сырный цыпленок</h3>
-            <p>тонкое тесто, 26 см.</p>
+            <h3>Käsehähnchen</h3>
+            <p>dünner Teig, 26 cm.</p>
           </div>
           <div class="cart__item-count">
             <div class="button button--outline button--circle cart__item-count-minus">
@@ -132,7 +132,7 @@ const Cart = () => {
             </div>
           </div>
           <div class="cart__item-price">
-            <b>770 ₽</b>
+            <b>7 €</b>
           </div>
           <div class="cart__item-remove">
             <div class="button button--outline button--circle">
@@ -164,8 +164,8 @@ const Cart = () => {
             />
           </div>
           <div class="cart__item-info">
-            <h3>Сырный цыпленок</h3>
-            <p>тонкое тесто, 26 см.</p>
+            <h3>Käsehähnchen</h3>
+            <p>dünner Teig, 26 cm.</p>
           </div>
           <div class="cart__item-count">
             <div class="button button--outline button--circle cart__item-count-minus">
@@ -207,7 +207,7 @@ const Cart = () => {
             </div>
           </div>
           <div class="cart__item-price">
-            <b>770 ₽</b>
+            <b>7 €</b>
           </div>
           <div class="cart__item-remove">
             <div class="button button--outline button--circle">
@@ -239,8 +239,8 @@ const Cart = () => {
             />
           </div>
           <div class="cart__item-info">
-            <h3>Сырный цыпленок</h3>
-            <p>тонкое тесто, 26 см.</p>
+            <h3>Käsehähnchen</h3>
+            <p>dünner Teig, 26 cm.</p>
           </div>
           <div class="cart__item-count">
             <div class="button button--outline button--circle cart__item-count-minus">
@@ -282,7 +282,7 @@ const Cart = () => {
             </div>
           </div>
           <div class="cart__item-price">
-            <b>770 ₽</b>
+            <b>7 €</b>
           </div>
           <div class="cart__item-remove">
             <div class="button button--outline button--circle">
@@ -314,8 +314,8 @@ const Cart = () => {
             />
           </div>
           <div class="cart__item-info">
-            <h3>Сырный цыпленок</h3>
-            <p>тонкое тесто, 26 см.</p>
+            <h3>Käsehähnchen</h3>
+            <p>dünner Teig, 26 cm.</p>
           </div>
           <div class="cart__item-count">
             <div class="button button--outline button--circle cart__item-count-minus">
@@ -357,7 +357,7 @@ const Cart = () => {
             </div>
           </div>
           <div class="cart__item-price">
-            <b>770 ₽</b>
+            <b>7 €</b>
           </div>
           <div class="cart__item-remove">
             <div class="button button--outline button--circle">
@@ -385,11 +385,11 @@ const Cart = () => {
         <div class="cart__bottom-details">
           <span>
             {" "}
-            Всего пицц: <b>3 шт.</b>{" "}
+            Insgesamt Pizzen: <b>3 шт.</b>{" "}
           </span>
           <span>
             {" "}
-            Сумма заказа: <b>900 ₽</b>{" "}
+            Bestellpreis: <b>28 €</b>{" "}
           </span>
         </div>
         <div class="cart__bottom-buttons">
@@ -410,10 +410,10 @@ const Cart = () => {
               ></path>
             </svg>
 
-            <span>Вернуться назад</span>
+            <span>Zurückkommen</span>
           </Link>
           <div class="button pay-btn">
-            <span>Оплатить сейчас</span>
+            <span>Zahlen jetzt</span>
           </div>
         </div>
       </div>

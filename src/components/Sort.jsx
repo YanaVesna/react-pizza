@@ -4,12 +4,12 @@ function Sort({ value, onChangeSort }) {
   const [openPopup, setOpenPopup] = React.useState(false);
 
   const list = [
-    { name: "популярности (DESC)", sortProperty: "rating" },
-    { name: "популярности (ASC)", sortProperty: "-rating" },
-    { name: "цене (DESC)", sortProperty: "price" },
-    { name: "цене (ASC)", sortProperty: "-price" },
-    { name: "алфавиту (DESC)", sortProperty: "title" },
-    { name: "алфавиту (ASC)", sortProperty: "-title" },
+    { name: "beliebtheit (DESC)", sortProperty: "rating" },
+    { name: "beliebtheit (ASC)", sortProperty: "-rating" },
+    { name: "preis (DESC)", sortProperty: "price" },
+    { name: "preis (ASC)", sortProperty: "-price" },
+    { name: "alphabetische (DESC)", sortProperty: "title" },
+    { name: "alphabetische (ASC)", sortProperty: "-title" },
   ];
   /* const sortName = list[value].name; */
 
@@ -33,7 +33,7 @@ function Sort({ value, onChangeSort }) {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
+        <b>Sortiert nach:</b>
         <span onClick={() => setOpenPopup(!openPopup)}>{value.name}</span>
       </div>
       {openPopup && (
@@ -50,10 +50,6 @@ function Sort({ value, onChangeSort }) {
                 {obj.name}
               </li>
             ))}
-
-            {/* <li className="active">популярности</li>
-            <li>цене</li>
-            <li>алфавиту</li> */}
           </ul>
         </div>
       )}

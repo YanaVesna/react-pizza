@@ -27,7 +27,7 @@ function PizzaBlock({ title, price, imageURL, sizes, types }) {
               onClick={() => setPizzaTypes(i)}
               className={pizzaTypes === i ? "active" : ""}
             >
-              {type === 0 ? "тонкое" : "традиционное"}
+              {type === 0 ? "dünn" : "traditionell"}
             </li>
           ))}
         </ul>
@@ -47,7 +47,7 @@ function PizzaBlock({ title, price, imageURL, sizes, types }) {
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} ₽</div>
+        <div className="pizza-block__price">ab {price} €</div>
         <button
           onClick={onClickAddButton}
           className="button button--outline button--add"
@@ -64,7 +64,7 @@ function PizzaBlock({ title, price, imageURL, sizes, types }) {
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Drauflegen</span>
           <i>{pizzaCount}</i>
         </button>
       </div>
