@@ -39,7 +39,8 @@ const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : "";
 
     fetch(
-      `http://localhost:3001/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+      /* `http://localhost:3001/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}` */
+      `https://64365ecf8205915d34f1b803.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}&project=1`
     )
       .then((res) => res.json())
       .then((arr) => {
