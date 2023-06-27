@@ -8,15 +8,16 @@ import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App.js";
 import { useSelector, useDispatch } from "react-redux";
+import { setCategoryID } from "../redux/slices/filterSlice.js";
 
 const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  /* const [categoryID, setCategoryID] = React.useState(0); */
+
   const categoryID = useSelector((state) => state.filter.categoryID);
+
   const dispatch = useDispatch();
-  console.log(dispatch, "dispatch");
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortType, setSortType] = React.useState({
@@ -25,9 +26,8 @@ const Home = () => {
   });
 
   const onChangeCategory = (id) => {
-    console.log(id);
+    dispatch(setCategoryID(id));
   };
-  console.log("category ID", categoryID);
 
   //https://64365ecf8205915d34f1b803.mockapi.io/items
   React.useEffect(() => {
