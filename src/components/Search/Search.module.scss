@@ -5,13 +5,19 @@
 .input {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 12px 20px;
-  width: 250px;
+  width: 400px;
   border-radius: 10px;
   font-size: 16px;
   padding-left: 40px;
+  @media (max-width: 1100px) {
+    width: 250px;
+  }
+  @media (max-width: 900px) {
+    width: 150px;
+  }
+
   &:focus {
     border: 2px solid rgba(0, 0, 0, 0.3);
-    width: 400px;
   }
 }
 

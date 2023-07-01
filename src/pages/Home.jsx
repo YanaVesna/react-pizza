@@ -9,6 +9,7 @@ import Pagination from "../components/Pagination";
 import { SearchContext } from "../App.js";
 import { useSelector, useDispatch } from "react-redux";
 import { setCategoryID } from "../redux/slices/filterSlice.js";
+import axios from "axios";
 
 const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
@@ -34,15 +35,26 @@ const Home = () => {
     const category = categoryID > 0 ? `category=${categoryID}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    fetch(
-      /* `http://localhost:3001/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}` */
+    /* `http://localhost:3001/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}` */
+    /* fetch(
+      
       `https://64365ecf8205915d34f1b803.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}&project=1`
     )
       .then((res) => res.json())
       .then((arr) => {
         setItems(arr);
         setIsLoading(false);
+      }); */
+
+    axios
+      .get(
+        `https://64365ecf8205915d34f1b803.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}&project=1`
+      )
+      .then((res) => {
+        setItems(res.data);
+        setIsLoading(false);
       });
+
     window.scrollTo(0, 0);
   }, [categoryID, sort.sortProperty, currentPage, searchValue]);
 
