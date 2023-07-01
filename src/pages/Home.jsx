@@ -15,15 +15,11 @@ const Home = () => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  const categoryID = useSelector((state) => state.filter.categoryID);
+  const { categoryID, sort } = useSelector((state) => state.filter);
 
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [sortType, setSortType] = React.useState({
-    name: "beliebtheit",
-    sortProperty: "rating",
-  });
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryID(id));
@@ -32,9 +28,9 @@ const Home = () => {
   //https://64365ecf8205915d34f1b803.mockapi.io/items
   React.useEffect(() => {
     setIsLoading(true);
-    const sortBy = sortType.sortProperty.replace("-", "");
+    const sortBy = sort.sortProperty.replace("-", "");
 
-    const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
+    const order = sort.sortProperty.includes("-") ? "asc" : "desc";
     const category = categoryID > 0 ? `category=${categoryID}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -48,7 +44,7 @@ const Home = () => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryID, sortType, currentPage, searchValue]);
+  }, [categoryID, sort.sortProperty, currentPage, searchValue]);
 
   //метод без бекэнда
   const pizzas = items
@@ -68,7 +64,7 @@ const Home = () => {
     <>
       <div className="content__top">
         <Categories value={categoryID} onChangeCategory={onChangeCategory} />
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Sort />
       </div>
       <h2 className="content__title">Alle Pizzen</h2>
       <div className="content__items">{isLoading ? skeletons : pizzas}</div>
